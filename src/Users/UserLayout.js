@@ -79,18 +79,21 @@ const UserLayout = () => {
     };
 
     const renderButtons = (buttons, hasDependentLayout) => {
+        const isFormValid = Object.values(formValidation).every(valid => valid);
+
         return (
             <div className="mt-4">
                 {Object.entries(buttons).map(([buttonType, buttonLabels]) => {
                     const shouldRenderButton = hasDependentLayout || buttonType !== 'dependent';
-                    const isFormValid = Object.values(formValidation).every((valid) => valid);
 
-                    return shouldRenderButton && isFormValid ? (
+                    return shouldRenderButton ? (
                         <React.Fragment key={buttonType}>
-                            {buttonLabels.map((buttonLabel) => (
+                            {buttonLabels.map(buttonLabel => (
                                 <button
                                     key={buttonLabel}
-                                    className="px-4 py-2 mr-2 font-semibold text-white bg-blue-500 rounded hover:bg-blue-600"
+                                    disabled={!isFormValid}
+                                    className={`px-4 py-2 mr-2 font-semibold rounded ${isFormValid ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-gray-400 text-gray-500 cursor-not-allowed'
+                                        }`}
                                 >
                                     {buttonLabel}
                                 </button>
@@ -101,6 +104,7 @@ const UserLayout = () => {
             </div>
         );
     };
+
 
     const renderSection = (section) => {
         const hasDependentLayout = section.dependent && showDependentLayout;

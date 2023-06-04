@@ -6,7 +6,6 @@ const Input = props => {
     let element = <></>;
     let inputClassName = "input bg-white border rounded-md py-2 px-3 focus:outline-none transition duration-300";
 
-    console.log("Valid is", valid);
     if (valid === false) {
         inputClassName += " border-red-500 focus:border-red-500";
     } else if (valid === true) {
