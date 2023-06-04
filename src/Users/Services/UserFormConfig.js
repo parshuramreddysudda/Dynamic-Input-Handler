@@ -7,12 +7,18 @@ let UserFormConfig = {
         label: 'Username',
         placeholder: 'Enter username',
         value: '',
+        max: 20,
+        min: 5,
         valid: undefined,
         validationText: '',
         validations: [
             {
                 type: 'required',
                 message: 'This is a required field'
+            },
+            {
+                type: 'text',
+                message: ""
             }
         ]
     },
@@ -53,8 +59,8 @@ let UserFormConfig = {
                 message: 'This is a required field'
             },
             {
-                type: 'phone',
-                message: 'Please enter a valid phone number'
+                type: 'tel',
+                message: 'Please enter a 10 digit valid phone number'
             }
         ]
     },

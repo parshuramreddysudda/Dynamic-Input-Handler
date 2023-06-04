@@ -4,12 +4,22 @@ const Input = props => {
     const { id, key, type, placeholder, value, onChange, label, valid, validationText, hideLabel, options } = props;
 
     let element = <></>;
+    let inputClassName = "input bg-white border rounded-md py-2 px-3 focus:outline-none transition duration-300";
+
+    console.log("Valid is", valid);
+    if (valid === false) {
+        inputClassName += " border-red-500 focus:border-red-500";
+    } else if (valid === true) {
+        inputClassName += " focus:border-blue-500";
+    }
+
+
 
     if (type === 'text' || type === 'number' || type === 'tel' || type === 'email') {
         element = (
             <input
                 id={`input-${id}`}
-                className="input"
+                className={inputClassName}
                 key={`input-${key}`}
                 type={type}
                 placeholder={placeholder}
@@ -21,7 +31,7 @@ const Input = props => {
         element = (
             <select
                 id={`input-${id}`}
-                className="input"
+                className={inputClassName}
                 key={`input-${key}`}
                 value={value}
                 onChange={event => onChange(event.target.value)}
@@ -47,10 +57,10 @@ const Input = props => {
     }
 
     return (
-        <div className="input-container">
-            {!hideLabel && <span>{label}</span>}
+        <div className="p-4 bg-white rounded-lg ">
+            {!hideLabel && <label htmlFor={`input-${id}`} className="block mb-2 text-lg font-medium">{label}</label>}
             {element}
-            {!valid && <span className="input-error-message">{validationText}</span>}
+            {!valid && <span className="mt-2 text-sm text-red-500">{validationText}</span>}
         </div>
     );
 };

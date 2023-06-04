@@ -4,7 +4,7 @@ import UserLayout from './Users/UserLayout';
 
 function App() {
   return (
-    <div className="App">
+    <div className="flex p-4">
       <UserLayout />
     </div>
   );

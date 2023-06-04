@@ -10,10 +10,12 @@
       ],
       "dependent": {
         "default": false,
-        "Section 1": ["userIPv4", "userIPv6"]
+        "fields": ["userIPv4", "userIPv6"]
       },
       "buttons": {
-        "button1": "Save"
+        "Verify": ["Verify UserDetails"],
+        "dependent": ["Verify IP"],
+        "Submit": ["Save"]
       }
     }
   ]
