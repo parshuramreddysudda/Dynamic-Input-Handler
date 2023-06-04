@@ -1,0 +1,20 @@
+{
+  "sections": [
+    {
+      "header": "User Details",
+      "subHeaders": [
+        {
+          "header": "Basic Details",
+          "fields": ["userName", "userEmail", "userPhone", "userGender"]
+        }
+      ],
+      "dependent": {
+        "default": false,
+        "Section 1": ["userIPv4", "userIPv6"]
+      },
+      "buttons": {
+        "button1": "Save"
+      }
+    }
+  ]
+}
