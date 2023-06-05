@@ -86,6 +86,16 @@ let UserFormConfig = {
             }
         ]
     },
+    useIP: {
+        id: 'useIP',
+        key: 'useIP',
+        'data-test-id': 'useIPSelect',
+        type: 'checkbox',
+        label: 'useIP',
+        placeholder: 'Select IP',
+        value: false,
+        valid: undefined,
+    },
     userIPv4: {
         id: 'userIPv4',
         key: 'userIPv4',

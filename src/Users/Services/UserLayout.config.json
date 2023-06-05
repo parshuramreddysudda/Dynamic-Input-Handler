@@ -1,22 +1,36 @@
 {
   "sections": [
     {
-      "header": "User Details",
-      "subHeaders": [
-        {
-          "header": "Basic Details",
-          "fields": ["userName", "userEmail", "userPhone", "userGender"]
-        }
-      ],
-      "dependent": {
-        "default": false,
-        "fields": ["userIPv4", "userIPv6"]
-      },
-      "buttons": {
-        "Verify": ["Verify UserDetails"],
-        "dependent": ["Verify IP"],
-        "Submit": ["Save"]
-      }
+      "id": "userDetails",
+      "title": "Basic Details",
+      "fields": ["userName", "userEmail", "userPhone", "userGender"]
+    },
+    {
+      "id": "useIPConfig",
+      "title": "IP Config Settings",
+      "fields": ["useIP"]
+    },
+    {
+      "id": "ipConfig",
+      "title": "IP Details",
+      "fields": ["userIPv4", "userIPv6"]
+    }
+  ],
+  "dependent": {
+    "useIp": "ipConfig"
+  },
+  "actions": [
+    {
+      "id": "resetUser",
+      "name": "Reset User"
+    },
+    {
+      "id": "saveUser",
+      "name": "Save User"
+    },
+    {
+      "id": "cancelUser",
+      "name": "Cancel User"
     }
   ]
 }
